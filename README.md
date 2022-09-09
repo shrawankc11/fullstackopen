@@ -6,11 +6,11 @@ Learn React, Redux, Node.js, MongoDB, GraphQL and TypeScript in one go! This cou
 
 
 ✅Part0 - Fundamentals of Web Apps </br>
-✅Part1 - Introduction to react
-✅Part2 - Communicating with server
-✅Part3 - Programming a server with NodeJS and Express
-✅Part4 - Testing Express server, user administration
-✅Part5 - Testing React apps
+✅Part1 - Introduction to react </br>
+✅Part2 - Communicating with server </br>
+✅Part3 - Programming a server with NodeJS and Express </br>
+✅Part4 - Testing Express server, user administration </br>
+✅Part5 - Testing React apps </br>
 
 2021-2022
 
