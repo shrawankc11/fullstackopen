@@ -1,0 +1,32 @@
+GET http://localhost:3001/api/users
+
+###
+
+POST http://localhost:3001/api/blogs
+Content-Type: application/json
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRlc3R1c2VyIiwidXNlcklkIjoiNjMxNjMxODgzZjZkYzMzY2MwMzkxMzkyIiwiaWF0IjoxNjYyNDM4ODI2fQ.AkGluw7zmn9FYuZ7fW0KKyxmwUWaCcEgfBAG2N1y6zQ
+
+{
+    "title" : "browser can only run javascript",
+    "author" : "shrawakc",
+    "url" : "www.blogapp.com/kc/1"
+}
+
+###
+
+DELETE http://localhost:3001/api/blogs/62f71d0e9eaa045115f15bc9
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRlc3R1c2VyIiwidXNlcklkIjoiNjMxNjMxODgzZjZkYzMzY2MwMzkxMzkyIiwiaWF0IjoxNjYyNDM4ODI2fQ.AkGluw7zmn9FYuZ7fW0KKyxmwUWaCcEgfBAG2N1y6zQ
+
+###
+
+POST http://localhost:3001/api/users/register
+Content-Type: application/json
+
+{
+    "username" : "root",
+    "password" : "root",
+    "name" : "rootuser"
+}
+
+###
+GET http://localhost:3001/api/blogs 
