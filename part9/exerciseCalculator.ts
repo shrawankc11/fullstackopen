@@ -34,7 +34,7 @@ const countPeriod = (hours: number[]): number => {
 }
 
 const calculateExercise = (dailyHours: Array<number>, target: number): Exercise => {
-    let ratingDescription: string, rating: number, success: boolean = false;
+    let ratingDescription: string = '', rating: number = 0, success: boolean = false;
     const periodLength: number = dailyHours.length;
     const trainingDay: number = countPeriod(dailyHours);
     const average: number = dailyHours.reduce((prev, current) => prev + current) / periodLength;

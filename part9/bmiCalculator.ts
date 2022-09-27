@@ -1,11 +1,3 @@
-interface bmiValues {
-    value1: number;
-    value2: number;
-}
-
-const extractArgs = (args: string[]): bmiValues => {
-    return { value1: Number(args[2]), value2: Number(args[3]) };
-}
 
 const calculateBmi = (height: number, weight: number): string => {
     if (isNaN(height) || isNaN(weight)) {
@@ -20,16 +12,9 @@ const calculateBmi = (height: number, weight: number): string => {
         return 'Noraml (Healthy weight)';
     } else if (BMI > 25 && BMI <= 40) {
         return 'overweight';
+    } else {
+        return 'invalid BMI entered'
     }
 };
 
-try {
-    const { value1, value2 } = extractArgs(process.argv)
-    console.log(calculateBmi(value1, value2))
-} catch (err) {
-    let errorMessage: string = 'Something bad happened. ';
-    if (err instanceof Error) {
-        errorMessage += 'Error: ' + err.message
-    }
-    console.log(errorMessage)
-}
+export { calculateBmi as bmiCalculator}
