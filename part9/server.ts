@@ -5,7 +5,7 @@ const app = express();
 
 const server = http.createServer(app);
 
-app.get('/hello', (req, res) => {
+app.get('/hello', (_req, res) => {
     res.send('Hello Full Stack!');
 })
 
