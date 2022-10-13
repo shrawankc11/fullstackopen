@@ -17,19 +17,35 @@ const asObject = (anecdote) => {
     };
 };
 
+export const addVote = (id) => {
+    return {
+        type: 'ADD_VOTE',
+        data: { id },
+    };
+};
+
+export const addNewAnecdote = (content) => {
+    return {
+        type: 'ADD_ANECDOTE',
+        data: {
+            content,
+            id: getId(),
+            votes: 0,
+        },
+    };
+};
+
 const initialState = anecdotesAtStart.map(asObject);
 
 const reducer = (state = initialState, action) => {
     if (action.type === 'ADD_VOTE') {
-        // const anecdoteToUpdate = state.find(
-        //     (anecdote) => anecdote.id === action.data.id
-        // );
-        // const add = { ...anecdoteToUpdate, votes: anecdoteToUpdate.votes + 1 };
         return state.map((anecdote) =>
             anecdote.id === action.data.id
                 ? { ...anecdote, votes: anecdote.votes + 1 }
                 : anecdote
         );
+    } else if (action.type === 'ADD_ANECDOTE') {
+        return [...state, action.data];
     }
 
     return state;
