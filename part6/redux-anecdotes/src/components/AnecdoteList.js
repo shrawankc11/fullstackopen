@@ -17,10 +17,14 @@ const Anecdote = ({ anecdote, handleVote }) => {
 const AnecdoteList = () => {
     const dispatch = useDispatch();
 
-    const anecdotes = useSelector(
-        ({ anecdotes }) => anecdotes
-        // anecdotes.sort((first, second) => second.votes - first.votes)
-    );
+    const anecdotes = useSelector(({ anecdotes, filter }) => {
+        if (filter) {
+            return anecdotes.filter((anecdote) =>
+                anecdote.content.includes(filter)
+            );
+        }
+        return anecdotes;
+    });
 
     const handleVote = (anecdote) => {
         dispatch(addVote(anecdote.id));
