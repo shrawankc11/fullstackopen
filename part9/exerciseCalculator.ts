@@ -13,42 +13,42 @@ interface argsParse {
     target: number;
 }
 
-const parseArgs = (args: Array<string>): argsParse => {
-    const argsToTraverse: string[] = args.slice(3)
+export const parseArgs = (args: Array<string>): argsParse => {
+    const argsToTraverse: string[] = args.slice(3);
     return {
         dailyHours: argsToTraverse.map(args => {
             if (isNaN(Number(args))) {
-                throw new Error('please provide arguments as numbers!')
-            } else return Number(args)
+                throw new Error('please provide arguments as numbers!');
+            } else return Number(args);
         }),
         target: Number(args[2])
-    }
-}
+    };
+};
 
 const countPeriod = (hours: number[]): number => {
-    let count: number = 0;
-    for (let hour of hours) {
-        if (hour !== 0) count++
+    let count = 0;
+    for (const hour of hours) {
+        if (hour !== 0) count++;
     }
-    return count
-}
+    return count;
+};
 
-const calculateExercise = (dailyHours: Array<number>, target: number): Exercise => {
-    let ratingDescription: string = '', rating: number = 0, success: boolean = false;
+export const calculateExercise = (dailyHours: Array<number>, target: number): Exercise => {
+    let ratingDescription = '', rating = 0, success = false;
     const periodLength: number = dailyHours.length;
     const trainingDay: number = countPeriod(dailyHours);
     const average: number = dailyHours.reduce((prev, current) => prev + current) / periodLength;
     if (average > target) {
-        ratingDescription = 'nice work! you\'ve reached your goal kudos!'
-        rating = 3
-        success = true
+        ratingDescription = 'nice work! you\'ve reached your goal kudos!';
+        rating = 3;
+        success = true;
     } else if (average - target < 0.5) {
-        ratingDescription = 'not too bad but could be better'
-        rating = 2
+        ratingDescription = 'not too bad but could be better';
+        rating = 2;
     } else if (average < target) {
-        ratingDescription = 'not enough work harder!'
-        rating = 1
-    };
+        ratingDescription = 'not enough work harder!';
+        rating = 1;
+    }
     return {
         periodLength,
         trainingDay,
@@ -57,17 +57,17 @@ const calculateExercise = (dailyHours: Array<number>, target: number): Exercise 
         ratingDescription,
         target,
         average
-    }
+    };
 };
 
 try {
-    const { dailyHours, target } = parseArgs(process.argv)
-    console.log(calculateExercise(dailyHours, target))
+    const { dailyHours, target } = parseArgs(process.argv);
+    console.log(calculateExercise(dailyHours, target));
 
 } catch (error) {
-    let errorMessage: string = 'Something went wrong. '
+    let errorMessage = 'Something went wrong. ';
     if (error instanceof Error) {
-        errorMessage += 'Error: ' + error.message
+        errorMessage += 'Error: ' + error.message;
     }
-    console.log(errorMessage)
+    console.log(errorMessage);
 }
