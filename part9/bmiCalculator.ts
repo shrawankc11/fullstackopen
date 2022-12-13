@@ -1,7 +1,7 @@
 
 const calculateBmi = (height: number, weight: number): string => {
     if (isNaN(height) || isNaN(weight)) {
-        throw new Error('send both args as Numbers!')
+        throw new Error('send both args as Numbers!');
     }
     const heightInMeter: number = height / 100;
     const squareOfHeight: number = heightInMeter ** 2;
@@ -13,8 +13,8 @@ const calculateBmi = (height: number, weight: number): string => {
     } else if (BMI > 25 && BMI <= 40) {
         return 'overweight';
     } else {
-        return 'invalid BMI entered'
+        return 'invalid BMI entered';
     }
 };
 
-export { calculateBmi as bmiCalculator}
+export { calculateBmi as bmiCalculator};
